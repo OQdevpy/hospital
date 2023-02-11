@@ -1,0 +1,97 @@
+{% load static %}
+
+<div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <form action="search.html" class="mobile-view">
+            <input class="form-control" type="text" placeholder="Search here">
+            <button class="btn" type="button"><i class="fa fa-search"></i></button>
+        </form>
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+                <li class="nav-item nav-profile">
+                    <a href="#" class="nav-link">
+                        <div class="nav-profile-image">
+                            <img src="{% static 'hospital/assets/img/profiles/avatar-17.jpg' %}" alt="profile">
+                        </div>
+                        <div class="nav-profile-text d-flex flex-column">
+                            <span class="font-weight-bold mb-2">David Grey. H</span>
+                            <span class="text-white text-small">Project Manager</span>
+                        </div>
+                        <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
+                    </a>
+                </li>
+                <li class="menu-title">
+                    <span>Asosiy</span>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="feather-home"></i> <span> Dashboard</span> <span
+                            class="menu-arrow"></span></a>
+                    <ul class="sub-menus">
+                        <li><a href="{% url 'index' %}" class="active">Bitimlar Paneli</a></li>
+                        <li><a href="projects-dashboard.html">Loyihalar Paneli</a></li>
+                        <li><a href="leads-dashboard.html">Boshqaruv Paneli</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="{% url 'services' %}"><i class="feather-check-square"></i> <span> Xizmatlar </span></a>
+                </li>
+                <li>
+                    <a href="{% url 'specialists' %}"><i class="feather-user-check"></i>
+                        <span> Mutaxassislar </span></a>
+                </li>
+                <li>
+                    <a href="{% url 'patients' %}"><i class="feather-user-plus"></i> <span> Bemorlar </span></a>
+                </li>
+                <li>
+                    <a href="{% url 'ambulatory' %}"><i class="feather-activity"></i> <span> Ambulatoriya </span></a>
+                </li>
+                <li>
+                    <a href="{% url 'laboratory' %}"><i class="feather-grid"></i> <span> Laboratoriya </span></a>
+                </li>
+                <li>
+                    <a href="{% url 'nurses' %}"><i class="feather-users"></i> <span> Hamshiralar </span></a>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="feather-clipboard"></i> <span> Hisobotlar </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul class="sub-menus">
+                        <li><a href="{% url 'invoices' %}">Invoices List</a></li>
+                        <li><a href="invoice-grid.html">Invoices Grid</a></li>
+                        <li><a href="add-invoice.html">Add Invoices</a></li>
+                        <li><a href="edit-invoice.html">Edit Invoices</a></li>
+                        <li><a href="view-invoice.html">Invoices Details</a></li>
+                        <li><a href="invoices-settings.html">Invoices Settings</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="email.html"><i class="feather-mail"></i> <span>Email</span></a>
+                </li>
+                <li>
+                    <a href="{% url 'settings' %}"><i class="feather-settings"></i> <span> Sozlamalar </span></a>
+                </li>
+                <li class="menu-title">
+                    <span> Qo'shimcha </span>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="feather-alert-triangle"></i> <span> Error Pages </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul class="sub-menus">
+                        <li><a href="error-404.html">404 Error </a></li>
+                        <li><a href="error-500.html">500 Error </a></li>
+                    </ul>
+                </li>
+                <li class="submenu">
+                    <a href="#"><i class="feather-list"></i> <span> Pages </span> <span
+                            class="menu-arrow"></span></a>
+                    <ul class="sub-menus">
+                        <li><a href="faq.html"> FAQ </a></li>
+                        <li><a href="terms.html"> Terms </a></li>
+                        <li><a href="privacy-policy.html"> Privacy Policy </a></li>
+                        <li><a href="blank-page.html"> Blank Page </a></li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>

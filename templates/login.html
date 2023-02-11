@@ -1,0 +1,94 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <meta name="description" content="CRMS - Bootstrap Admin Template">
+    <meta name="keywords"
+        content="admin, estimates, bootstrap, business, corporate, creative, management, minimal, modern, accounts, invoice, html5, responsive, CRM, Projects">
+    <meta name="author" content="Dreamguys - Bootstrap Admin Template">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Login - CRMS admin template</title>
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'hospital/assets/img/favicon.png' %}">
+
+    <link rel="stylesheet" href="{% static 'hospital/assets/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'hospital/assets/css/font-awesome.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'hospital/assets/css/feather.css' %}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'hospital/assets/css/style.css' %}" class="themecls">
+
+    <!--[if lt IE 9]>
+    <script src="{% static 'hospital/assets/js/html5shiv.min.js' %}"></script>
+    <script src="{% static 'hospital/assets/js/respond.min.js' %}"></script>
+    <![endif]-->
+</head>
+
+<body class="account-page">
+
+    <div class="main-wrapper">
+        <div class="account-content">
+            <div class="container">
+
+                <div class="account-logo">
+                    <a href="{% url 'index' %}"><img src="{% static 'hospital/assets/img/logo.png' %}"
+                            alt="Dreamguy's Technologies"></a>
+                </div>
+
+                <div class="account-box">
+                    <div class="account-wrapper">
+                        <h3 class="account-title"> Kirish </h3>
+                        <p class="account-subtitle">Boshqaruv paneliga kirish</p>
+
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label>E-mail manzilini kiriting</label>
+                                {{ form.username }}
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col">
+                                        <label>Parol</label>
+                                    </div>
+                                    <div class="col-auto">
+                                        <a class="text-muted" href="forgot-password.html">
+                                            Parolni unutdingizmi?
+                                        </a>
+                                    </div>
+                                </div>
+                                {{ form.password }}
+                            </div>
+                            <div class="form-group text-center">
+                                <button class="btn btn-primary account-btn" type="submit"> Kirish </button>
+                            </div>
+                            <div class="account-footer">
+                                <p>Sizda hisob yo'qmi ? <a href="register.html">Ro'yxatdan o'tish</a></p>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="{% static 'hospital/assets/js/jquery-3.6.0.min.js' %}"></script>
+
+    <script src="{% static 'hospital/assets/js/bootstrap.bundle.min.js' %}"></script>
+
+
+    <script src="{% static 'hospital/assets/js/theme-settings.js' %}"></script>
+
+    <script src="{% static 'hospital/assets/js/app.js' %}"></script>
+</body>
+
+</html>

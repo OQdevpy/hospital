@@ -1,0 +1,2215 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ title }}
+{% endblock title %}
+
+{% block main %}
+
+<div class="main-wrapper">
+
+    <div class="page-wrapper">
+
+        <div class="content container-fluid">
+            <div class="crms-title row bg-white">
+                <div class="col ">
+                    <h3 class="page-title m-0">
+<span class="page-title-icon bg-gradient-primary text-white me-2">
+<i class="feather-smartphone"></i>
+</span> Mutaxassislar </h3>
+                </div>
+                <div class="col text-end">
+                    <ul class="breadcrumb bg-white float-end m-0 ps-0 pe-0">
+                        <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+                        <li class="breadcrumb-item active"> Mutaxassislar</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="page-header pt-3 mb-0 ">
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown">
+                            <a class="dropdown-toggle recently-viewed" href="#" role="button" data-bs-toggle="dropdown"
+                               aria-expanded="false"> Recently Viewed</a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="#">Recently Viewed</a>
+                                <a class="dropdown-item" href="#">Items I'm following</a>
+                                <a class="dropdown-item" href="#">All Contacts</a>
+                                <a class="dropdown-item" href="#">Contacts added in the last 24 hours</a>
+                                <a class="dropdown-item" href="#">Contacts added in the last 7 days</a>
+                                <a class="dropdown-item" href="#">Contacts with no notes in the last month</a>
+                                <a class="dropdown-item" href="#">Contacts with no notes in the last 7 days</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col text-end">
+                        <ul class="list-inline-item ps-0">
+                            <li class="nav-item dropdown list-inline-item add-lists">
+                                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#"
+                                   data-bs-toggle="dropdown" aria-expanded="false">
+                                    <div class="nav-profile-text">
+                                        <i class="fa fa-th" aria-hidden="true"></i>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                       data-bs-target="#add-new-list">Add New List View</a>
+                                </div>
+                            </li>
+                            <li class="list-inline-item">
+                                <button class="add btn btn-gradient-primary font-weight-bold text-white todo-list-add-btn btn-rounded"
+                                        id="add-task" data-bs-toggle="modal" data-bs-target="#add_contact">Mutaxassis
+                                    qo'shish
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card mb-0">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                    <thead>
+                                    <tr>
+                                        <th class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <th>Full Name</th>
+                                        <th>Title</th>
+                                        <th>Phone</th>
+                                        <th>Email</th>
+                                        <th>Tag List</th>
+                                        <th></th>
+                                        <th class="text-end">Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="{% static 'hospital/assets/img/profiles/avatar-11.jpg' %}"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">Wilmer
+                                                Deluna</a>
+                                        </td>
+                                        <td>Facility Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="e3948a8f8e8691a3848e828a8fcd808c8e">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-success">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="{% static 'hospital/assets/img/profiles/avatar-10.jpg' %}"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">John
+                                                Doe</a>
+                                        </td>
+                                        <td>Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="701a1f181e30171d11191c5e131f1d">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-info">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="assets/img/profiles/avatar-25.jpg"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">John
+                                                Smith</a>
+                                        </td>
+                                        <td>CMO</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="fc8f91958894bc9b919d9590d29f9391">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-danger">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="assets/img/profiles/avatar-26.jpg"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">Wilmer
+                                                Deluna</a>
+                                        </td>
+                                        <td>Property Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="0963666167496e64686065276a6664">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-warning">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="assets/img/profiles/avatar-11.jpg"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">Wilmer
+                                                Deluna</a>
+                                        </td>
+                                        <td>Facility Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="f7809e9b9a9285b7909a969e9bd994989a">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-success">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="assets/img/profiles/avatar-10.jpg"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">John
+                                                Doe</a>
+                                        </td>
+                                        <td>Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="0f656067614f68626e6663216c6062">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-info">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="checkBox">
+                                            <label class="container-checkbox">
+                                                <input type="checkbox">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                        </td>
+                                        <td>
+                                            <a href="#" class="avatar"><img alt=""
+                                                                            src="assets/img/profiles/avatar-11.jpg"></a>
+                                            <a href="#" data-bs-toggle="modal" data-bs-target="#system-user">Vinson
+                                                Jk</a>
+                                        </td>
+                                        <td>Facility Manager</td>
+                                        <td>
+                                            875455453
+                                        </td>
+                                        <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                               data-cfemail="d1a6b8bdbcb4a391b6bcb0b8bdffb2bebc">[email&#160;protected]</a>
+                                        </td>
+                                        <td><span class="badge badge-gradient-warning">Sample_data</span></td>
+                                        <td class="checkBox"><i class="fa fa-star" aria-hidden="true"></i></td>
+                                        <td class="text-center">
+                                            <div class="dropdown dropdown-action">
+                                                <a href="#" class="action-icon dropdown-toggle"
+                                                   data-bs-toggle="dropdown" aria-expanded="false"><i
+                                                        class="material-icons">more_vert</i></a>
+                                                <div class="dropdown-menu dropdown-menu-right">
+                                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="add-new-list">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">Add New List View</h4>
+                <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <form class="forms-sample">
+                    <div class="form-group row">
+                        <label for="view-name" class="col-sm-4 col-form-label">New View Name</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="view-name" placeholder="New View Name">
+                        </div>
+                    </div>
+                    <div class="form-group row pt-4">
+                        <label class="col-sm-4 col-form-label">Sharing Settings</label>
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optionsRadios"
+                                               id="optionsRadios1" value=""> Just For Me <i
+                                            class="input-helper"></i></label>
+                                </div>
+                                <br/>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="optionsRadios"
+                                               id="optionsRadios2" value="option2" checked=""> Share Filter with
+                                        Everyone <i class="input-helper"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="add_contact" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <button type="button" class="close md-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title text-center">Add Contact</h4>
+                <button type="button" class="btn-close xs-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <form>
+                            <h4>Name & Occupation</h4>
+                            <div class="form-group row">
+                                <div class="col-md-12"><label class="col-form-label">Name <span
+                                        class="text-danger">*</span></label></div>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" placeholder="Prefix" name="prefix">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" placeholder="First name" name="prefix-name">
+                                </div>
+                                <div class="col-md-4">
+                                    <input class="form-control" type="text" placeholder="Last name" name="last-name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Organization</label>
+                                    <select class="form-control">
+                                        <option>Select</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Title</label>
+                                    <input type="text" class="form-control" name="title" placeholder="Title">
+                                </div>
+                            </div>
+                            <h4>Contact Details</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Email</label>
+                                    <input type="text" class="form-control" name="email" placeholder="Email">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Email Opted out</label>
+                                    <div>
+                                        <label class="container-checkbox">
+                                            <input type="checkbox">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Phone</label>
+                                    <input type="text" class="form-control" name="phone" placeholder="Phone">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Home Phone</label>
+                                    <input type="text" class="form-control" name="h-phone" placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Mobile Phone</label>
+                                    <input type="text" class="form-control" name="m-phone" placeholder="Phone">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Other Phone</label>
+                                    <input type="text" class="form-control" id="o-phone" name="o-phone"
+                                           placeholder="Phone">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Assistant Phone</label>
+                                    <input type="text" class="form-control" name="assistant-phone" placeholder="Phone">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Assistant Name</label>
+                                    <input type="text" class="form-control" name="assistant-name"
+                                           placeholder="Assistant Name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Fax</label>
+                                    <input type="text" class="form-control" name="fax" placeholder="Fax">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Linkedin</label>
+                                    <input type="text" class="form-control" name="linkedin" placeholder="linkedin">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Facebook</label>
+                                    <input type="text" class="form-control" name="fb" placeholder="Facebook">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Twitter</label>
+                                    <input type="text" class="form-control" name="twitter" placeholder="Twitter">
+                                </div>
+                            </div>
+                            <h4>Address Information</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Mailing Address</label>
+                                    <textarea class="form-control" rows="3" name="mailing-address"
+                                              placeholder="Address"></textarea>
+                                </div>
+                                <div class="col-sm-6 mt-3">
+                                    <label class="col-form-label"></label><br>
+                                    <input type="text" class="form-control" placeholder="Mailing City"
+                                           name="mailing-city">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Mailing State"
+                                           name="mailing-state">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Mailing Postal code"
+                                           name="mailing-postal-code">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Mailing Country</label>
+                                    <select class="form-control">
+                                        <option>India</option>
+                                        <option>US</option>
+                                        <option>Japan</option>
+                                    </select>
+                                </div>
+                                <div class="col-sm-6 mt-3">
+                                    <label class="col-form-label">Other Address</label>
+                                    <textarea class="form-control" rows="3" name="other-address"
+                                              placeholder="Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Other City" name="other-city">
+                                </div>
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Other State"
+                                           name="other-state">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="form-control" placeholder="Other Postal code"
+                                           name="other-postal-code">
+                                </div>
+                                <div class="col-sm-6">
+                                    <select class="form-control">
+                                        <option>India</option>
+                                        <option>US</option>
+                                        <option>Japan</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h4>Dates To Remember</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Due Date <span class="text-danger">*</span></label>
+                                    <div class="cal-icon"><input class="form-control datetimepicker" type="text"
+                                                                 placeholder="MM/DD/YY"></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Date of Birth <span
+                                            class="text-danger">*</span></label>
+                                    <div class="cal-icon"><input class="form-control datetimepicker" type="text"
+                                                                 placeholder="MM/DD/YY"></div>
+                                </div>
+                            </div>
+                            <h4>Description Information</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label class="col-form-label">Description </label>
+                                    <textarea class="form-control" rows="3" id="description"
+                                              placeholder="Description"></textarea>
+                                </div>
+                            </div>
+                            <h4>Tag Information</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label class="col-form-label">Tag List</label>
+                                    <input type="text" class="form-control" name="tag-name" placeholder="Tag List">
+                                </div>
+                            </div>
+                            <h4>Permissions</h4>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label class="col-form-label">Permission</label>
+                                    <select class="form-control">
+                                        <option>Task Visibility</option>
+                                        <option>Private Task</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="text-center py-3">
+                                <button type="button" class="border-0 btn btn-primary btn-gradient-primary btn-rounded">
+                                    Save
+                                </button>&nbsp;&nbsp;
+                                <button type="button" class="btn btn-secondary btn-rounded">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="system-user" tabindex="-1" role="dialog" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <button type="button" class="close md-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row w-100">
+                    <div class="col-md-7 account d-flex">
+                        <div class="company_img">
+                            <img src="assets/img/system-user.png" alt="User" class="user-image" class="img-fluid"/>
+                        </div>
+                        <div>
+                            <p class="mb-0">System User</p>
+                            <span class="modal-title">John Doe</span>
+                            <span class="rating-star"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            <span class="lock"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-end">
+                        <ul class="list-unstyled list-style-none">
+                            <li class="dropdown list-inline-item"><br/>
+                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false"> Actions </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Edit This Contact</a>
+                                    <a class="dropdown-item" href="#">Change Contact Image</a>
+                                    <a class="dropdown-item" href="#">Delete This Contact</a>
+                                    <a class="dropdown-item" href="#">Clone This Contact</a>
+                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                    <a class="dropdown-item" href="#">Change Contact To Lead</a>
+                                    <a class="dropdown-item" href="#">Print This Contact</a>
+                                    <a class="dropdown-item" href="#">Email This Contact</a>
+                                    <a class="dropdown-item" href="#">Add New Task For Contact</a>
+                                    <a class="dropdown-item" href="#">Add New Event For Contact</a>
+                                    <a class="dropdown-item" href="#">Add Activity Set To Contact</a>
+                                    <a class="dropdown-item" href="#">Add New Deal For Contact</a>
+                                    <a class="dropdown-item" href="#">Add New Project For Contact</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="btn-close xs-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="card due-dates">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <span>Title</span>
+                            <p>Phone call</p>
+                        </div>
+                        <div class="col">
+                            <span>Companies</span>
+                            <p>Claimpett corp</p>
+                        </div>
+                        <div class="col">
+                            <span>Phone</span>
+                            <p>9876764875</p>
+                        </div>
+                        <div class="col">
+                            <span>Email</span>
+                            <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                  data-cfemail="ec86838482888389ac8b818d8580c28f8381">[email&#160;protected]</a></p>
+                        </div>
+                        <div class="col">
+                            <span>Contact owner</span>
+                            <p>John Doe</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="task-infos">
+                    <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified">
+                        <li class="nav-item"><a class="nav-link active" href="#task-details" data-bs-toggle="tab">Details</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#task-related" data-bs-toggle="tab">Related</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#task-activity" data-bs-toggle="tab">Activity</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="task-details">
+                            <div class="crms-tasks">
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Name & Occupation</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Record ID</td>
+                                                    <td class="border-0">124192692</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="border-0">Name</td>
+                                                    <td class="border-0">John Doe</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Company</td>
+                                                    <td>Umbrella</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Title</td>
+                                                    <td>Lorem ipsum</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Contact Details</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Email</td>
+                                                    <td class="border-0"><a href="/cdn-cgi/l/email-protection"
+                                                                            class="__cf_email__"
+                                                                            data-cfemail="0a606562646e656f4a6d676b636624696567">[email&#160;protected]</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email Opted out</td>
+                                                    <td>
+                                                        <div class="form-check m-0 ps-0">
+                                                            <label class="form-check-label">
+                                                                <input class="checkbox" type="checkbox"> <i
+                                                                    class="input-helper"></i><i
+                                                                    class="input-helper"></i><i
+                                                                    class="input-helper"></i></label>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Phone</td>
+                                                    <td>9866667775</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Home Phone</td>
+                                                    <td>0422-656565</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mobile Phone</td>
+                                                    <td>9887876556</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Phone</td>
+                                                    <td>9786778678</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Assistant Phone</td>
+                                                    <td>9877667676</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Assistant Name</td>
+                                                    <td>David</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fax</td>
+                                                    <td>1234</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Linkedin</td>
+                                                    <td>Lorem Ipsum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Facebook</td>
+                                                    <td>Lorem ipsum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Twitter</td>
+                                                    <td>David_1</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Address Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Mailling Address</td>
+                                                    <td class="border-0">USA</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Other Address</td>
+                                                    <td>New York</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Dates To Remember</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Dates to Remember</td>
+                                                    <td class="border-0">09/03/2020</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date of Birth</td>
+                                                    <td>04/08/2000</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Additional Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Date of Next Activity</td>
+                                                    <td class="border-0">04/08/2000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date of Last Activity</td>
+                                                    <td>04/05/2010</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Contact Owner</td>
+                                                    <td>John Doe</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Contact Created</td>
+                                                    <td>Jun 20, 2020</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Description Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Description</td>
+                                                    <td class="border-0">Lorem Ipsum</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Tag List</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Tag List</td>
+                                                    <td class="border-0">Lorem Ipsum</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane task-related" id="task-related">
+                            <div class="row pt-2">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Companies</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Deals</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Projects</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Contacts</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Notes</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Files</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="crms-tasks  p-2">
+                                    <div class="tasks__item crms-task-item active">
+                                        <div class="accordion-header js-accordion-header">Companies</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Company Name</th>
+                                                            <th>Phone</th>
+                                                            <th>Billing Country</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#" class="avatar"><img alt=""
+                                                                                                src="assets/img/c-logo2.png"></a>
+                                                                <a href="#" data-bs-toggle="modal"
+                                                                   data-bs-target="#company-details">Clampett Oil and
+                                                                    Gas Corp.</a>
+                                                            </td>
+                                                            <td>8754554531</td>
+                                                            <td>United States</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <a href="#" class="avatar"><img alt=""
+                                                                                                src="assets/img/c-logo.png"></a>
+                                                                <a href="#" data-bs-toggle="modal"
+                                                                   data-bs-target="#company-details">Acme
+                                                                    Corporation</a>
+                                                            </td>
+                                                            <td>8754554531</td>
+                                                            <td>United States</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Deals</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Deal Name</th>
+                                                            <th>Company</th>
+                                                            <th>User Responsible</th>
+                                                            <th>Deal Value</th>
+                                                            <th></th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Bensolet
+                                                            </td>
+                                                            <td>Globex</td>
+                                                            <td>John Doe</td>
+                                                            <td>USD $‎180</td>
+                                                            <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Ansanio tech
+                                                            </td>
+                                                            <td>Lecto</td>
+                                                            <td>John Smith</td>
+                                                            <td>USD $‎180</td>
+                                                            <td><i class="fa fa-star" aria-hidden="true"></i></td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Projects</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Project Name</th>
+                                                            <th>Status</th>
+                                                            <th>User Responsible</th>
+                                                            <th>Date Created</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Wilmer Deluna
+                                                            </td>
+                                                            <td>Completed</td>
+                                                            <td>Williams</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Contacts</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Title</th>
+                                                            <th>phone</th>
+                                                            <th>Email</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Wilmer Deluna
+                                                            </td>
+                                                            <td>Call Enquiry</td>
+                                                            <td>987675656</td>
+                                                            <td><a href="/cdn-cgi/l/email-protection"
+                                                                   class="__cf_email__"
+                                                                   data-cfemail="f2859b9e9e9b939fb2959f939b9edc919d9f">[email&#160;protected]</a>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                John Doe
+                                                            </td>
+                                                            <td>Enquiry</td>
+                                                            <td>987675656</td>
+                                                            <td><a href="/cdn-cgi/l/email-protection"
+                                                                   class="__cf_email__"
+                                                                   data-cfemail="62080d0a0c22050f030b0e4c010d0f">[email&#160;protected]</a>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Notes</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Size</th>
+                                                            <th>Category</th>
+                                                            <th>Date Added</th>
+                                                            <th>Added by</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Document
+                                                            </td>
+                                                            <td>50KB</td>
+                                                            <td>Phone call</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>John Doe</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Finance
+                                                            </td>
+                                                            <td>100KB</td>
+                                                            <td>Enquiry</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>Smith</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Files</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Name</th>
+                                                            <th>Size</th>
+                                                            <th>Category</th>
+                                                            <th>Date Added</th>
+                                                            <th>Added by</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Document
+                                                            </td>
+                                                            <td>50KB</td>
+                                                            <td>Phone Call</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>John Doe</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Finance
+                                                            </td>
+                                                            <td>100KB</td>
+                                                            <td>Enquiry</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>Smith</td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Edit Link</a>
+                                                                        <a class="dropdown-item" href="#">Delete
+                                                                            Link</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="task-activity">
+                            <div class="row pt-2">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Total Activities</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Last Activity</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="crms-tasks  p-2">
+                                    <div class="tasks__item crms-task-item active">
+                                        <div class="accordion-header js-accordion-header">Upcoming Activity</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Type</th>
+                                                            <th>Activity Name</th>
+                                                            <th>Assigned To</th>
+                                                            <th>Due Date</th>
+                                                            <th>Status</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Meeting
+                                                            </td>
+                                                            <td>Call Enquiry</td>
+                                                            <td>John Doe</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>
+                                                                <label class="container-checkbox">
+                                                                    <input type="checkbox" checked>
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Task</a>
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Event</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Meeting
+                                                            </td>
+                                                            <td>Phone Enquiry</td>
+                                                            <td>David</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>
+                                                                <label class="container-checkbox">
+                                                                    <input type="checkbox" checked>
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Task</a>
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Event</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Past Activity</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped table-nowrap custom-table mb-0 datatable">
+                                                        <thead>
+                                                        <tr>
+                                                            <th>Type</th>
+                                                            <th>Activity Name</th>
+                                                            <th>Assigned To</th>
+                                                            <th>Due Date</th>
+                                                            <th>Status</th>
+                                                            <th class="text-end">Actions</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                Meeting
+                                                            </td>
+                                                            <td>Call Enquiry</td>
+                                                            <td>John Doe</td>
+                                                            <td>13-Jul-20 11:37 PM</td>
+                                                            <td>
+                                                                <label class="container-checkbox">
+                                                                    <input type="checkbox" checked>
+                                                                    <span class="checkmark"></span>
+                                                                </label>
+                                                            </td>
+                                                            <td class="text-center">
+                                                                <div class="dropdown dropdown-action">
+                                                                    <a href="#" class="action-icon dropdown-toggle"
+                                                                       data-bs-toggle="dropdown"
+                                                                       aria-expanded="false"><i class="material-icons">more_vert</i></a>
+                                                                    <div class="dropdown-menu dropdown-menu-right">
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Task</a>
+                                                                        <a class="dropdown-item" href="#">Add New
+                                                                            Event</a>
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade" id="company-details" role="dialog" aria-modal="true">
+    <div class="modal-dialog" role="document">
+        <button type="button" class="close md-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="row w-100">
+                    <div class="col-md-7 account">
+                        <p class="User-name">Company</p>
+                        <span><img src="assets/img/c-logo.png" alt="User" class="user-image"/></span>
+                        <span class="modal-title">Clampett Oil and Gas Corp.</span>&nbsp;
+                        <span class="rating-star"><i class="fa fa-star" aria-hidden="true"></i></span>&nbsp;
+                        <span class="lock"><i class="fa fa-lock" aria-hidden="true"></i></span>
+                    </div>
+                    <div class="col-md-5 text-end">
+                        <ul class="list-unstyled list-style-none">
+                            <li class="dropdown list-inline-item"><br/>
+                                <a class="dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                   aria-expanded="false"> Actions </a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#">Edit This Company</a>
+                                    <a class="dropdown-item" href="#">Change Organization Image</a>
+                                    <a class="dropdown-item" href="#">Delete This Organization</a>
+                                    <a class="dropdown-item" href="#">Change Record Owner</a>
+                                    <a class="dropdown-item" href="#">Generate Merge Document</a>
+                                    <a class="dropdown-item" href="#">Print This Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Task For Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Event For Organization</a>
+                                    <a class="dropdown-item" href="#">Add Activity Set To Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Contact For Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Opportunity For Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Opportunity For Organization</a>
+                                    <a class="dropdown-item" href="#">Add New Project For Organization</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="btn-close xs-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="card shadow p-2 due-dates">
+                <div class="row m-0">
+                    <div class="col">
+                        <span>Title</span>
+                        <p></p>
+                    </div>
+                    <div class="col">
+                        <span>Companies</span>
+                        <p></p>
+                    </div>
+                    <div class="col">
+                        <span>Phone</span>
+                        <p>9876764875</p>
+                    </div>
+                    <div class="col">
+                        <span>Email</span>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                              data-cfemail="365c595e5852595376515b575f5a1855595b">[email&#160;protected]</a></p>
+                    </div>
+                    <div class="col">
+                        <span>Contact owner</span>
+                        <p>John Doe</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="task-infos">
+                    <ul class="nav nav-tabs nav-tabs-solid nav-tabs-rounded nav-justified">
+                        <li class="nav-item"><a class="nav-link active" href="#company-task-details"
+                                                data-bs-toggle="tab">Details</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#company-task-related" data-bs-toggle="tab">Related</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#company-task-activity" data-bs-toggle="tab">Activity</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="#company-task-news" data-bs-toggle="tab">News</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane show active" id="company-task-details">
+                            <div class="crms-tasks">
+                                <div class="tasks__item crms-task-item active">
+                                    <div class="accordion-header js-accordion-header">Organization Name</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Record ID</td>
+                                                    <td class="border-0">124192692</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Organization Name</td>
+                                                    <td>Clampett Oil and Gas Corp.</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item">
+                                    <div class="accordion-header js-accordion-header">Organization Contact Details</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Phone</td>
+                                                    <td class="border-0">(626) 847-1294</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fax</td>
+                                                    <td>1234</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Website</td>
+                                                    <td>google.com</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>LinkedIn</td>
+                                                    <td>lorem ipsum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Facebook</td>
+                                                    <td>Lorem ipsum</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Twitter</td>
+                                                    <td>Not Started</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Email Domains</td>
+                                                    <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                                           data-cfemail="7011121330171d11191c5e131f1d">[email&#160;protected]</a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item">
+                                    <div class="accordion-header js-accordion-header">Address Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Billing Address</td>
+                                                    <td class="border-0">1000 Escalon Street, Palo Alto, CA, 94020,
+                                                        United States map
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shipping Addres</td>
+                                                    <td></td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item">
+                                    <div class="accordion-header js-accordion-header">Additional Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Dates to remember</td>
+                                                    <td>08/01/2011</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Organization Created</td>
+                                                    <td>03-Jun-20 1:14 AM</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date of Next Activity</td>
+                                                    <td>10/01/2017</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Date of Last Activity</td>
+                                                    <td>08/06/2017</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item">
+                                    <div class="accordion-header js-accordion-header">Description Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td>Description</td>
+                                                    <td>Lorem ipsum</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tasks__item crms-task-item">
+                                    <div class="accordion-header js-accordion-header">Tag Information</div>
+                                    <div class="accordion-body js-accordion-body">
+                                        <div class="accordion-body__contents">
+                                            <table class="table">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="border-0">Tag List</td>
+                                                    <td class="border-0">Lorem Ipsum</td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane task-related" id="company-task-related">
+                            <div class="row pt-3">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Companies</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Deals</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Projects</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-4">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Contacts</h4>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Notes</h4>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Files</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="crms-tasks  p-2">
+                                    <div class="tasks__item crms-task-item active">
+                                        <div class="accordion-header js-accordion-header">Companies</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Deals</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Projects</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Contacts</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Notes</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Files</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="company-task-activity">
+                            <div class="row pt-3">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Total Activities</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-info card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Emails</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Tasks</h4>
+                                            <span>1</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row pt-3 pb-4">
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-success card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Events</h4>
+                                            <span></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card bg-gradient-danger card-img-holder text-white h-100">
+                                        <div class="card-body">
+                                            <img src="assets/img/circle.png" class="card-img-absolute"
+                                                 alt="circle-image">
+                                            <h4 class="font-weight-normal mb-3">Last Activity</h4>
+                                            <span>2</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="crms-tasks  p-2">
+                                    <div class="tasks__item crms-task-item active">
+                                        <div class="accordion-header js-accordion-header">Upcoming Activity</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tasks__item crms-task-item">
+                                        <div class="accordion-header js-accordion-header">Past Activity</div>
+                                        <div class="accordion-body js-accordion-body">
+                                            <div class="accordion-body__contents">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="company-task-news">
+                            <div class="row pt-3">
+                                <div class="col-md-12">
+                                    <h4>News Items</h4>
+                                    <p>Current news items about this Organization are sourced from Google News</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal right fade settings" id="settings" role="dialog" aria-modal="true">
+    <div class="toggle-close">
+        <div class="toggle" data-bs-toggle="modal" data-bs-target="#settings"><i
+                class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
+        </div>
+    </div>
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header p-3">
+                <h4 class="modal-title" id="myModalLabel2">Theme Customizer</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body pb-3">
+                <div class="scroll">
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="pb-2">Primary Skin</h5>
+                                    </div>
+                                    <div class="col text-end d-none">
+                                        <a class="reset text-white bg-dark" id="ChangeprimaryDefault">Reset Default</a>
+                                    </div>
+                                </div>
+                                <div class="theme-settings-swatches">
+                                    <div class="themes">
+                                        <div class="themes-body">
+                                            <ul id="theme-changes"
+                                                class="theme-colors border-0 list-inline-item list-unstyled mb-0">
+                                                <li class="theme-title">Solid Color</li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style')"
+                                                                                   class="theme-defaults bg-warnings"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-green')"
+                                                                                   class="theme-solid-purple bg-warnings"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-blue')"
+                                                                                   class="theme-solid-black bg-blue"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-orange')"
+                                                                                   class="theme-solid-pink bg-orange"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-pink')"
+                                                                                   class="theme-solid-pink bg-pink"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-purple')"
+                                                                                   class="theme-solid-purle bg-purple"></span>
+                                                </li>
+                                                <li class="list-inline-item"><span onclick="toggleTheme('style-red')"
+                                                                                   class="theme-solid-danger bg-danger"></span>
+                                                </li>
+                                                <li><br/></li>
+                                                <li>
+                                                    <hr/>
+                                                </li>
+                                                <li class="theme-title">Gradient Color</li>
+                                                <li class="list-inline-item"><span
+                                                        onclick="toggleTheme('style-gradient-blue')"
+                                                        class="theme-orange bg-sunny-mornings"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        onclick="toggleTheme('style-gradient-green')"
+                                                        class="theme-blue bg-tempting-azures"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        onclick="toggleTheme('style-gradient-maroon')"
+                                                        class="theme-grey bg-amy-crisps"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        onclick="toggleTheme('style-gradient-orange')"
+                                                        class="theme-lgrey bg-mean-fruits"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        onclick="toggleTheme('style-gradient-pink')"
+                                                        class="theme-dblue bg-malibu-beachs"></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item border-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="pb-2">Header Style</h5>
+                                    </div>
+                                    <div class="col text-end">
+                                        <a class="reset text-white bg-dark" id="ChageheaderDefault">Reset Default</a>
+                                    </div>
+                                </div>
+                                <div class="theme-settings-swatches">
+                                    <div class="themes">
+                                        <div class="themes-body">
+                                            <ul id="theme-change1"
+                                                class="theme-colors border-0 list-inline-item list-unstyled mb-0">
+                                                <li class="theme-title">Solid Color</li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-solid-black bg-black"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-solid-pink bg-primary"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-solid-orange bg-secondary1"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-solid-purple bg-success"></span></li>
+
+                                                <li class="list-inline-item"><span
+                                                        class="header-solid-green bg-warnings"></span></li>
+                                                <li><br></li>
+                                                <li>
+                                                    <hr>
+                                                </li>
+                                                <li class="theme-title">Gradient Color</li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color1 bg-sunny-morning"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color2 bg-tempting-azure"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color3 bg-amy-crisp"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color4 bg-mean-fruit"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color5 bg-malibu-beach"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color6 bg-ripe-malin"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="header-gradient-color7 bg-plum-plate"></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="list-group m-0">
+                            <li class="list-group-item border-0">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="pb-2">Apps Sidebar Style</h5>
+                                    </div>
+                                    <div class="col  text-end">
+                                        <a class="reset text-white bg-dark" id="ChagesidebarDefault">Reset Default</a>
+                                    </div>
+                                </div>
+                                <div class="theme-settings-swatches">
+                                    <div class="themes">
+                                        <div class="themes-body">
+                                            <ul id="theme-change2"
+                                                class="theme-colors border-0 list-inline-item list-unstyled">
+                                                <li class="theme-title">Solid Color</li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-solid-black bg-black"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-solid-pink bg-primary"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-solid-orange bg-secondary1"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-solid-purple bg-success"></span></li>
+
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-solid-green bg-warnings"></span></li>
+                                                <li><br></li>
+                                                <li>
+                                                    <hr>
+                                                </li>
+                                                <li class="theme-title">Gradient Color</li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color1 bg-sunny-morning"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color2 bg-tempting-azure"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color3 bg-amy-crisp"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color4 bg-mean-fruit"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color5 bg-malibu-beach"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color6 bg-ripe-malin"></span></li>
+                                                <li class="list-inline-item"><span
+                                                        class="sidebar-gradient-color7 bg-plum-plate"></span></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="row Default-font">
+                            <div class="col">
+                                <h5 class="pb-2">Font Style</h5>
+                            </div>
+                            <div class="col text-end">
+                                <a class="reset text-white bg-dark font-Default">Reset Default</a>
+                            </div>
+                        </div>
+                        <ul class="list-inline-item list-unstyled font-family border-0 p-0" id="theme-change">
+                            <li class="list-inline-item roboto-font">Roboto</li>
+                            <li class="list-inline-item poppins-font">Poppins</li>
+                            <li class="list-inline-item montserrat-font">Montserrat</li>
+                            <li class="list-inline-item inter-font">Inter</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sidebar-contact">
+    <div class="toggle" data-bs-toggle="modal" data-bs-target="#settings"><i
+            class="fa fa-cog fa-w-16 fa-spin fa-2x"></i></div>
+</div>
+
+
+{% endblock main %}
