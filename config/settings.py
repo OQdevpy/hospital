@@ -37,7 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hospital.apps.HospitalConfig'
+
+    'accounts',
+    'hospital',
+    'phonenumber_field',
 ]
 
 MIDDLEWARE = [
@@ -120,10 +123,12 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 
 ]
-
+AUTH_USER_MODEL = 'accounts.Account'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+LOGIN_URL = 'accounts/login/'
+LOGOUT_REDIRECT_URL = "accounts/logout"
 # success_url = '/index.html/'
 
 # Default primary key field type

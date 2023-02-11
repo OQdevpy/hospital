@@ -1,0 +1,73 @@
+# from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+
+
+
+class LoginForm(AuthenticationForm):
+    username = forms.CharField(max_length=50, help_text="Maksimal 30 tagacha belgi",
+                               widget=forms.TextInput(attrs={
+                                   'class': 'form-control',
+                                   'placeholder': 'Login...'
+                               }))
+    password = forms.CharField(label="Parol", widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'Parolni kiriting... '
+    }))
+
+
+from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django import forms
+from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from django.urls import reverse_lazy
+from django.utils.translation import gettext_lazy as _
+from .models import Account
+
+
+class RegisterForm(UserCreationForm):
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2',)
+
+
+class AccountCreationForm(forms.ModelForm):
+    password1 = forms.CharField(label=_('Password'), widget=forms.PasswordInput)
+    password2 = forms.CharField(label=_('Password confirmation'), widget=forms.PasswordInput)
+
+    class Meta:
+        model = Account
+        fields = ('username',)
+
+    def clean_password2(self):
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
+        if password1 and password2:
+            if password1 != password2:
+                raise forms.ValidationError(_('Password don\'t match'))
+            return password2
+        raise forms.ValidationError(_('You should write passwords'))
+
+    def save(self, commit=True):
+        account = super().save(commit=False)
+        account.set_password(self.cleaned_data['password1'])
+        if commit:
+            account.save()
+        return account
+
+
+class AccountChangeForm(forms.ModelForm):
+    password = ReadOnlyPasswordHashField()
+
+    class Meta:
+        model = Account
+        fields = ('username', 'email', 'full_name', 'phone', 'image',)
+
+    def __init__(self, *args, **kwargs):
+        super(AccountChangeForm, self).__init__(*args, **kwargs)
+        self.fields['password'].help_text = '<a href="%s">change password</a>.' % reverse_lazy(
+            'admin:auth_user_password_change', args=[self.instance.id])
+
+    def clean_password(self):
+        return self.initial['password']
