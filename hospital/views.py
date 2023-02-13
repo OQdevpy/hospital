@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 
+from hospital.models import Doctor, Diseased, Complaint, Laboratory, Chamber
+
 
 # Create your views here.
 
-@login_required(login_url='login')
+@login_required(login_url='accounts/login')
 def index(request):
     return render(request, 'index.html')
 
@@ -18,11 +20,16 @@ def services(request):
 
 
 def specialists(request):
-    return render(request, 'contacts.html')
+    doctors = Doctor.objects.all()
+    context = {
+        'doctors': doctors,}
+    return render(request, 'contacts.html',context)
 
 
 def patients(request):
-    return render(request, 'leads.html')
+    patients_ = Complaint.objects.all()
+    context = {"patients":patients_}
+    return render(request, 'leads.html',context)
 
 
 def ambulator(request):
@@ -30,7 +37,9 @@ def ambulator(request):
 
 
 def laboratory(request):
-    return render(request, 'projects.html')
+    laboratory_=Chamber.objects.all()
+    context = {"laboratories":laboratory_}
+    return render(request, 'projects.html',context)
 
 
 def nurses(request):
@@ -41,28 +50,4 @@ def invoices(request):
     return render(request, 'invoices.html')
 
 
-def user_login(request):
-    form = LoginForm()
 
-    if request.method == "POST":
-        form = LoginForm(data=request.POST)
-        if not form.is_valid():
-            return redirect('login')
-        if user := form.get_user():
-            login(request, user)
-            return redirect('index')
-        else:
-            return redirect('login')
-    else:
-        form = LoginForm()
-
-    context = {
-        'form': form,
-        'title': "Авторизация"
-    }
-    return render(request, "login.html", context)
-
-
-def user_logout(request):
-    logout(request)
-    return redirect('login')

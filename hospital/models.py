@@ -1,7 +1,9 @@
 from django.db import models
 from django.db.migrations.operations import special
+from django.db.models.signals import post_save, pre_save
+from django.dispatch import receiver
 from phonenumber_field.modelfields import PhoneNumberField
-
+from datetime import timedelta
 from accounts.models import Account
 
 
@@ -24,7 +26,7 @@ class Doctor(Account):
 
 class Diseased(models.Model):
     full_name = models.CharField(max_length=221)
-    birthday = models.DateTimeField()
+    birthday = models.DateField()
     location = models.CharField(max_length=221)
     phone = PhoneNumberField(unique=True)
 
@@ -34,8 +36,8 @@ class Diseased(models.Model):
 
 class Complaint(models.Model):
     complaint = models.CharField(max_length=255)
-    specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
+    patient = models.ForeignKey(Diseased, on_delete=models.CASCADE, null=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -61,26 +63,34 @@ class Diseased_to_Laboratory(models.Model):
 
 
 class Room(models.Model):
+    number = models.PositiveIntegerField(null=True)
     price = models.PositiveIntegerField()
     is_empty = models.BooleanField()
 
     def __str__(self):
-        return str(self.price)
+        return str(self.number)
+
 
 class Chamber(models.Model):
     room = models.ForeignKey(Room, on_delete=models.PROTECT)
     diseased = models.ForeignKey(Diseased, on_delete=models.PROTECT)
     diagnosis = models.CharField(max_length=250)
     open_time = models.DateTimeField(auto_now_add=True)
-    close_time = models.DateTimeField()
+    days = models.IntegerField()
+    close_time = models.DateTimeField(blank=True, null=True, editable=False)
+
+
+@receiver(post_save, sender=Chamber)
+def update_stock(sender, instance, created, **kwargs):
+    if instance.room.is_empty:
+        if instance.close_time!= instance.open_time + timedelta(days=instance.days
+                                          ):
+            instance.close_time = instance.open_time + timedelta(days=instance.days)
+            instance.save()
+
 
 
     # @property
     # def get_sum_price(self):
     #     print((self.close_time.day()-self.open_time.day())*self.room.price)
     #     return (self.close_time.day()-self.open_time.day())*self.room.price
-
-
-
-
-
