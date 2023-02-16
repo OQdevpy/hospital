@@ -99,13 +99,13 @@
                                                 </label>
                                             </td>
                                             <td>
-                                                <a href="#"><span class="person-circle-a person-circle">A</span></a>
+                                                <a href="#"><span class="person-circle-a person-circle">{{ labaratory.diseased |make_list|first}}</span></a>
                                                 <a href="#" data-bs-toggle="modal"
-                                                   data-bs-target="#project-details">{{ labaratory.patient }} </a>
+                                                   data-bs-target="#project-details">{{ labaratory.diseased }} </a>
                                             </td>
                                             <td>In Progress</td>
                                             <td><a href="#" data-bs-toggle="modal" data-bs-target="#system-user">{{ labaratory }}</a></td>
-                                            <td>{{ labaratory. }}</td>
+                                            <td>{{ labaratory.days}}</td>
                                             <td>
                                                 <div class="pipeline-small flat pipeline-project">
                                                     <a class="won noselect tipped-top planing" data-bs-toggle="tooltip"

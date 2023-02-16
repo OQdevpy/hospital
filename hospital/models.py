@@ -3,7 +3,7 @@ from django.db.migrations.operations import special
 from django.db.models.signals import post_save, pre_save
 from django.dispatch import receiver
 from phonenumber_field.modelfields import PhoneNumberField
-from datetime import timedelta
+from datetime import timedelta, datetime
 from accounts.models import Account
 
 
@@ -76,19 +76,21 @@ class Chamber(models.Model):
     diseased = models.ForeignKey(Diseased, on_delete=models.PROTECT)
     diagnosis = models.CharField(max_length=250)
     open_time = models.DateTimeField(auto_now_add=True)
-    days = models.IntegerField()
+    days = models.PositiveIntegerField()
     close_time = models.DateTimeField(blank=True, null=True, editable=False)
 
 
 @receiver(post_save, sender=Chamber)
 def update_stock(sender, instance, created, **kwargs):
     if instance.room.is_empty:
-        if instance.close_time!= instance.open_time + timedelta(days=instance.days
-                                          ):
+        if instance.close_time != instance.open_time + timedelta(days=instance.days
+                                                                 ) or instance.close_time is None:
             instance.close_time = instance.open_time + timedelta(days=instance.days)
-            instance.save()
-
-
+            instance.room.is_empty = False
+            instance.room.save(), instance.save()
+        elif instance.close_time <= datetime.now():
+            instance.room.is_empty = True
+            instance.room.save()
 
     # @property
     # def get_sum_price(self):

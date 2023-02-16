@@ -20,16 +20,16 @@ def services(request):
 
 
 def specialists(request):
-    doctors = Doctor.objects.all()
+    doctors = Doctor.objects.filter(role=1)
     context = {
-        'doctors': doctors,}
-    return render(request, 'contacts.html',context)
+        'doctors': doctors, }
+    return render(request, 'contacts.html', context)
 
 
 def patients(request):
     patients_ = Complaint.objects.all()
-    context = {"patients":patients_}
-    return render(request, 'leads.html',context)
+    context = {"patients": patients_}
+    return render(request, 'leads.html', context)
 
 
 def ambulator(request):
@@ -37,17 +37,15 @@ def ambulator(request):
 
 
 def laboratory(request):
-    laboratory_=Chamber.objects.all()
-    context = {"laboratories":laboratory_}
-    return render(request, 'projects.html',context)
+    laboratory_ = Chamber.objects.all()
+    context = {"laboratories": laboratory_}
+    return render(request, 'projects.html', context)
 
 
 def nurses(request):
-    return render(request, 'activities.html')
+    nurses = Doctor.objects.filter(role=0)
+    return render(request, 'activities.html', {'nurses': nurses})
 
 
 def invoices(request):
     return render(request, 'invoices.html')
-
-
-

@@ -9,13 +9,13 @@
         <div id="sidebar-menu" class="sidebar-menu">
             <ul>
                 <li class="nav-item nav-profile">
-                    <a href="#" class="nav-link">
+                    <a href="{{ request.user.image.url }}" class="nav-link">
                         <div class="nav-profile-image">
-                            <img src="{% static 'hospital/assets/img/profiles/avatar-17.jpg' %}" alt="profile">
+                            <img src="{{ request.user.image.url }}" alt="profile">
                         </div>
                         <div class="nav-profile-text d-flex flex-column">
-                            <span class="font-weight-bold mb-2">David Grey. H</span>
-                            <span class="text-white text-small">Project Manager</span>
+                            <span class="font-weight-bold mb-2">{{ request.user.full_name}}</span>
+                            <span class="text-white text-small">{{ request.user.get__children}}</span>
                         </div>
                         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                     </a>
@@ -37,7 +37,7 @@
                 </li>
                 <li>
                     <a href="{% url 'specialists' %}"><i class="feather-user-check"></i>
-                        <span> Mutaxassislar </span></a>
+                        <span> Doktorlar </span></a>
                 </li>
                 <li>
                     <a href="{% url 'patients' %}"><i class="feather-user-plus"></i> <span> Bemorlar </span></a>
@@ -49,7 +49,7 @@
                     <a href="{% url 'laboratory' %}"><i class="feather-grid"></i> <span> Laboratoriya </span></a>
                 </li>
                 <li>
-                    <a href="{% url 'nurses' %}"><i class="feather-users"></i> <span> Hamshiralar </span></a>
+                    <a href="{% url 'nurses' %}"><i class="feather-users"></i> <span> Labarantlar </span></a>
                 </li>
                 <li class="submenu">
                     <a href="#"><i class="feather-clipboard"></i> <span> Hisobotlar </span> <span
